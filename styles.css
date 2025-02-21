@@ -1,0 +1,397 @@
+/* Reset y estilos base */
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    background: #f8f9fa;
+}
+
+/* Header y navegación */
+header {
+    background: rgba(30, 30, 30, 0.9);
+    padding: 15px 0;
+    position: fixed; /* Mantener siempre visible */
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    transition: background 0.3s;
+    border-radius: 0;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.header-logo {
+    position: absolute;
+    left: 20px;
+    width: 60px; /* Manteniendo el tamaño perfecto en escritorio */
+    height: 42px; /* Proporción 500:354 */
+    object-fit: contain; /* Mantiene proporción y recorta si es necesario */
+    object-position: center; /* Centrado horizontalmente */
+    z-index: 1100;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li {
+    margin: 0 20px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: gold;
+}
+
+.menu-toggle {
+    display: none;
+    font-size: 1.5rem;
+    color: #fff;
+    background: none;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* Hero section */
+.hero {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    overflow: hidden;
+}
+
+.hero video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    transform: translate(-50%, -50%);
+    object-fit: cover;
+    z-index: 1;
+    will-change: transform;
+}
+
+.hero .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    z-index: 2;
+}
+
+.hero .logo {
+    position: relative;
+    z-index: 3;
+    width: 100%;
+    max-width: 1792px;
+    height: auto;
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+/* Secciones generales */
+.section {
+    padding: 80px 10%;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.6s ease-out;
+}
+
+.section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+h2 {
+    font-size: 2rem;
+    margin-bottom: 30px;
+    font-family: 'Playfair Display', serif;
+    position: relative;
+    display: inline-block;
+}
+
+h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 2px;
+    background: #333;
+}
+
+.contact h2::after {
+    background: #fff;
+}
+
+/* About section (usando estructura similar a Areas) */
+.about .content {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.about .item-list {
+    list-style: none;
+    padding: 0;
+}
+
+.about .item {
+    display: flex;
+    align-items: center;
+    background: #fff;
+    margin: 15px 0;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    transition: box-shadow 0.3s, transform 0.3s;
+    opacity: 0;
+    animation: fadeInUp 1s ease forwards;
+}
+
+.about .item:hover {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    transform: translateY(-5px);
+}
+
+.about .item:hover .icon {
+    color: gold;
+}
+
+.about .item .icon {
+    font-size: 1.5rem;
+    color: #1e1e1e;
+    margin-right: 15px;
+    min-width: 40px;
+    text-align: center;
+    transition: color 0.3s;
+}
+
+.about .item:nth-child(1) { animation-delay: 0.2s; }
+.about .item:nth-child(2) { animation-delay: 0.4s; }
+.about .item:nth-child(3) { animation-delay: 0.6s; }
+.about .item:nth-child(4) { animation-delay: 0.8s; }
+
+/* Areas section */
+.areas .content {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.areas ul {
+    list-style: none;
+    padding: 0;
+}
+
+.areas ul li {
+    display: flex;
+    align-items: center;
+    background: white;
+    margin: 15px 0;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    transition: box-shadow 0.3s, transform 0.3s;
+    opacity: 0;
+    animation: fadeInUp 0.8s ease forwards;
+}
+
+.areas ul li:hover {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    transform: translateY(-5px);
+}
+
+.areas ul li:hover .icon {
+    color: gold;
+}
+
+.areas ul li .icon {
+    font-size: 1.2rem;
+    color: #1e1e1e;
+    margin-right: 15px;
+    min-width: 30px;
+    text-align: center;
+    transition: color 0.3s;
+}
+
+.areas ul li:nth-child(1) { animation-delay: 0.1s; }
+.areas ul li:nth-child(2) { animation-delay: 0.2s; }
+.areas ul li:nth-child(3) { animation-delay: 0.3s; }
+.areas ul li:nth-child(4) { animation-delay: 0.4s; }
+.areas ul li:nth-child(5) { animation-delay: 0.5s; }
+.areas ul li:nth-child(6) { animation-delay: 0.6s; }
+.areas ul li:nth-child(7) { animation-delay: 0.7s; }
+.areas ul li:nth-child(8) { animation-delay: 0.8s; }
+.areas ul li:nth-child(9) { animation-delay: 0.9s; }
+.areas ul li:nth-child(10) { animation-delay: 1s; }
+
+/* Contact section */
+.contact {
+    background: #1e1e1e;
+    color: white;
+    padding: 50px 10%;
+}
+
+.contact .content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.contact .contact-info {
+    flex: 1;
+    min-width: 250px;
+}
+
+.contact .map {
+    flex: 1;
+    min-width: 300px;
+    height: 300px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.contact a {
+    color: gold;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.contact a:hover {
+    text-decoration: underline;
+}
+
+/* Footer */
+footer {
+    background: #222;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+    font-size: 0.9rem;
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+    0% { opacity: 0; transform: translateY(15px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+/* Media queries para móviles */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+    header {
+        padding: 20px 0; /* Aumentada la altura del banner en móvil */
+    }
+    nav ul {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: calc(100% + 5px);
+        left: 0;
+        width: 100%;
+        background: rgba(30, 30, 30, 0.95);
+        transform: translateY(-100%);
+        transition: transform 0.3s ease-in-out;
+    }
+    nav ul.active {
+        display: flex;
+        transform: translateY(0);
+    }
+    nav ul li {
+        margin: 10px 0;
+        text-align: center;
+    }
+    .header-logo {
+        width: 50px; /* Ajustado para 500x354px en móvil, proporcional a 35px de alto */
+        height: 35px; /* Proporción 1:0.708 */
+        left: 10px;
+        object-fit: contain;
+        object-position: center;
+        transform: translateY(0); /* Centrado verticalmente en móvil */
+    }
+    .hero {
+        height: 50vh;
+    }
+    .hero video {
+        object-fit: cover;
+        height: 100%;
+        width: 100%;
+    }
+    .hero .logo {
+        width: 150%;
+        max-width: none;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    .section {
+        padding: 50px 5%;
+    }
+    .about .item {
+        flex-direction: column;
+        align-items: flex-start;
+        text-align: left;
+    }
+    .about .item .icon {
+        margin: 0 auto 10px auto; /* Centrado horizontal en móvil */
+    }
+    .areas ul li {
+        flex-direction: column;
+        align-items: flex-start;
+        text-align: left;
+    }
+    .areas ul li .icon {
+        margin: 0 auto 10px auto; /* Centrado horizontal en móvil */
+    }
+    .contact .content {
+        flex-direction: column;
+        align-items: center;
+    }
+    .contact .map {
+        width: 100%;
+        height: 250px;
+    }
+}
