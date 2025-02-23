@@ -11,7 +11,7 @@ body {
 header {
     background: rgba(30, 30, 30, 0.9);
     padding: 15px 0;
-    position: fixed; /* Mantener siempre visible */
+    position: fixed;
     width: 100%;
     top: 0;
     left: 0;
@@ -33,10 +33,10 @@ nav {
 .header-logo {
     position: absolute;
     left: 20px;
-    width: 60px; /* Manteniendo el tamaño perfecto en escritorio */
-    height: 42px; /* Proporción 500:354 */
-    object-fit: contain; /* Mantiene proporción y recorta si es necesario */
-    object-position: center; /* Centrado horizontalmente */
+    width: 60px;
+    height: 42px;
+    object-fit: contain;
+    object-position: center;
     z-index: 1100;
 }
 
@@ -75,6 +75,24 @@ nav ul li a:hover {
     transform: translateY(-50%);
 }
 
+/* Estilos para la X de cierre en el menú móvil */
+nav ul.active .close-menu {
+    display: block;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 2rem;
+    color: #fff;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 1200;
+}
+
+nav ul .close-menu {
+    display: none;
+}
+
 /* Hero section */
 .hero {
     position: relative;
@@ -99,16 +117,7 @@ nav ul li a:hover {
     object-fit: cover;
     z-index: 1;
     will-change: transform;
-}
-
-.hero .overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.85);
-    z-index: 2;
+    filter: brightness(30%); /* 10% más oscuro que el 40% anterior */
 }
 
 .hero .logo {
@@ -157,7 +166,7 @@ h2::after {
     background: #fff;
 }
 
-/* About section (usando estructura similar a Areas) */
+/* About section */
 .about .content {
     max-width: 900px;
     margin: 0 auto;
@@ -306,6 +315,41 @@ footer {
     font-size: 0.9rem;
 }
 
+/* Botón flotante para volver arriba */
+.scroll-top-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    background: rgba(30, 30, 0, 0.9);
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: opacity 0.3s ease, background 0.3s, transform 0.3s;
+    z-index: 1000;
+    opacity: 0; /* Oculto por defecto */
+}
+
+.scroll-top-btn.visible {
+    opacity: 1; /* Visible cuando tiene la clase */
+}
+
+.scroll-top-btn:hover {
+    background: gold;
+    color: #1e1e1e;
+    transform: scale(1.1);
+}
+
+.scroll-top-btn i {
+    font-size: 1.5rem;
+}
+
 /* Animaciones */
 @keyframes fadeIn {
     0% { opacity: 0; }
@@ -323,16 +367,16 @@ footer {
         display: block;
     }
     header {
-        padding: 20px 0; /* Aumentada la altura del banner en móvil */
+        padding: 20px 0;
     }
     nav ul {
         display: none;
         flex-direction: column;
-        position: fixed; /* Pantalla completa */
+        position: fixed;
         top: 0;
         left: 0;
         width: 100%;
-        height: 100vh; /* Ocupa todo el alto */
+        height: 100vh;
         background: rgba(30, 30, 30, 0.95);
         z-index: 999;
         justify-content: center;
@@ -349,12 +393,12 @@ footer {
         text-align: center;
     }
     .header-logo {
-        width: 50px; /* Manteniendo el tamaño actual en móvil */
-        height: 35px; /* Proporción 1:0.708 */
+        width: 50px;
+        height: 35px;
         left: 10px;
         object-fit: contain;
         object-position: center;
-        transform: translateY(0); /* Centrado verticalmente en móvil */
+        transform: translateY(0);
     }
     .hero {
         height: 50vh;
@@ -380,7 +424,7 @@ footer {
         text-align: left;
     }
     .about .item .icon {
-        margin: 0 auto 10px auto; /* Centrado horizontal en móvil */
+        margin: 0 auto 10px auto;
     }
     .areas ul li {
         flex-direction: column;
@@ -388,7 +432,7 @@ footer {
         text-align: left;
     }
     .areas ul li .icon {
-        margin: 0 auto 10px auto; /* Centrado horizontal en móvil */
+        margin: 0 auto 10px auto;
     }
     .contact .content {
         flex-direction: column;
