@@ -55,9 +55,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
     observer.observe(heroSection);
 
-    // Animación fadeInUp para ítems de about y areas
+    // Animación fadeInUp para ítems de about, areas y team
     const aboutItems = document.querySelectorAll(".about .item");
     const areasItems = document.querySelectorAll(".areas ul li");
+    const teamItems = document.querySelectorAll(".team ul li");
 
     aboutItems.forEach((item, index) => {
         item.style.animationDelay = `${index * 0.2 + 0.2}s`;
@@ -65,6 +66,11 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     areasItems.forEach((item, index) => {
+        item.style.animationDelay = `${index * 0.1 + 0.1}s`;
+        item.style.animation = "fadeInUp 0.8s ease forwards";
+    });
+
+    teamItems.forEach((item, index) => {
         item.style.animationDelay = `${index * 0.1 + 0.1}s`;
         item.style.animation = "fadeInUp 0.8s ease forwards";
     });
@@ -87,7 +93,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Mostrar/Ocultar botón según scroll
     function toggleScrollTopButton() {
         const scrollPosition = window.scrollY;
-        const triggerPoint = 200; // Aparece después de bajar 200px (ajustable)
+        const triggerPoint = 200;
 
         if (scrollPosition > triggerPoint) {
             scrollTopBtn.classList.add("visible");
@@ -97,5 +103,5 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     window.addEventListener("scroll", toggleScrollTopButton);
-    toggleScrollTopButton(); // Chequeo inicial
+    toggleScrollTopButton();
 });
