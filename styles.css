@@ -520,7 +520,7 @@ footer {
         margin: 0 auto 10px auto;
     }
     .team ul {
-        grid-template-columns: 1fr; /* Una columna en móvil */
+        grid-template-columns: 1fr;
     }
     .team ul li {
         flex-direction: column;
