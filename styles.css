@@ -76,7 +76,7 @@ nav ul li a:hover {
 }
 
 /* Estilos para la X de cierre en el menú móvil */
-nav ul.active .close-menu {
+nav = nav ul.active .close-menu {
     display: block;
     position: absolute;
     top: 20px;
@@ -297,11 +297,21 @@ h2::after {
     transform: translateY(-5px);
 }
 
-.team ul li:hover .icon {
+.team ul li:hover .icon-male,
+.team ul li:hover .icon-female {
     color: gold;
 }
 
-.team ul li .icon {
+.team ul li .icon-male {
+    font-size: 2rem;
+    color: #1e1e1e;
+    margin-right: 20px;
+    min-width: 50px;
+    text-align: center;
+    transition: color 0.3s;
+}
+
+.team ul li .icon-female {
     font-size: 2rem;
     color: #1e1e1e;
     margin-right: 20px;
@@ -350,6 +360,9 @@ h2::after {
 .team ul li:nth-child(4) { animation-delay: 0.4s; }
 .team ul li:nth-child(5) { animation-delay: 0.5s; }
 .team ul li:nth-child(6) { animation-delay: 0.6s; }
+.team ul li:nth-child(7) { animation-delay: 0.7s; }
+.team ul li:nth-child(8) { animation-delay: 0.8s; }
+.team ul li:nth-child(9) { animation-delay: 0.9s; }
 
 /* Contact section */
 .contact {
@@ -527,7 +540,8 @@ footer {
         align-items: center;
         text-align: center;
     }
-    .team ul li .icon {
+    .team ul li .icon-male,
+    .team ul li .icon-female {
         margin: 0 0 15px 0;
     }
     .contact .content {
